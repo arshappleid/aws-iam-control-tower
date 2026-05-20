@@ -49,7 +49,7 @@ This strategy makes it easy to audit, and Deny services that are not required. S
 ## References
 1. [AWS Control Tower Pre-Requisites](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-CTower.html#:~:text=AWS%20Control%20Tower%20applies%20preventive,AWS%20Control%20Tower%20user%20guide.)
 2. [SCP Syntax](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html)
-3. 
+3. [SCP Evaluation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_evaluation.html#strategy_using_scps)
 
 
 
