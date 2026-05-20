@@ -17,6 +17,8 @@ Control Tower Makes use of [Service Control Policies](https://docs.aws.amazon.co
 #### SCP Examples
 **SCP evaluation follows a deny-by-default model**, meaning that any permissions not explicitly allowed in the SCPs are denied. To make sure this is enforced, make sure to have an Explicit Allow All at the root account level.
 
+![AWS SCP Deny List Evaluation Strategy](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp-evaluation-deny-list.png)
+
 SCP for the Networking Account. The following policy denies access to every other resource accept Networking Resources (VPC, TGW , Network Firewalls, WAF , ELB). This strategy, allows to easily control access, and should be applied at each account level.
 
 ```
