@@ -17,7 +17,7 @@ Control Tower Makes use of [Service Control Policies](https://docs.aws.amazon.co
 #### SCP Examples
 **SCP evaluation follows a deny-by-default model**, meaning that any permissions not explicitly allowed in the SCPs are denied. To make sure this is enforced, make sure to have an Explicit Allow All at the root account level.
 
-![AWS SCP Deny List Evaluation Strategy](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp-evaluation-deny-list.png)
+![AWS SCP Deny List Evaluation Strategy]([https://docs.aws.amazon.com/organizations/latest/userguide/images/scp-evaluation-deny-list.png](https://docs.aws.amazon.com/images/organizations/latest/userguide/images/scp_deny_1.png))
 
 SCP for the Networking Account. The following policy denies access to every other resource accept Networking Resources (VPC, TGW , Network Firewalls, WAF , ELB). This strategy, allows to easily control access, and should be applied at each account level.
 
@@ -27,8 +27,8 @@ SCP for the Networking Account. The following policy denies access to every othe
   "Statement": [
     {
       "Sid": "AllowOnlyNetworkAndIdentity",
-      "Effect": "Allow",
-      "Action": [
+      "Effect": "Deny",
+      "NotAction": [
         "ec2:*Vpc*",
         "ec2:*Gateway*",
         "network-firewall:*",
@@ -36,12 +36,13 @@ SCP for the Networking Account. The following policy denies access to every othe
         "sts:*",
         "logs:*"
       ],
-      "Resource": "*"
+      "Resource": "*",
+      "Comment: : "Allow only networking services."
     }
   ]
 }
 ```
-
+This strategy makes it easy to audit, and Deny services that are not required. Since AWS offers tons of other services. 
 
 ### How does this compare to Organizational Units
 
